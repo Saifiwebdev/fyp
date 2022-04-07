@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SizeController;
 use App\Http\Controllers\CouponController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,7 @@ Route::group(['middleware'=>'admin_auth'], function(){
     Route::post('/admin/category/manage_category/update/{id}',[CategoryController::class,'update']);
     Route::post('/admin/category/manage_category_process',[CategoryController::class,'manage_category_process'])->name('category.insert');
     Route::get('/admin/category/delete/{id}',[CategoryController::class,'delete']);
+    Route::get('/admin/category/status/{status}/{id}',[CategoryController::class,'status']);
 
     //Coupon Routes
     Route::get('/admin/coupon',[CouponController::class,'index']);
@@ -39,6 +41,17 @@ Route::group(['middleware'=>'admin_auth'], function(){
     Route::post('/admin/coupon/manage_coupon/update/{id}',[CouponController::class,'update']);
     Route::post('/admin/coupon/manage_coupon_process',[CouponController::class,'manage_coupon_process'])->name('coupon.insert');
     Route::get('/admin/coupon/delete/{id}',[CouponController::class,'delete']);
+    Route::get('/admin/coupon/status/{status}/{id}',[CouponController::class,'status']);
+
+    //Size Routes
+    Route::get('/admin/size',[SizeController::class,'index']);
+    Route::get('/admin/size/manage_size',[SizeController::class,'manage_size']);
+    Route::get('/admin/size/manage_size/{id}',[SizeController::class,'edit']);
+    Route::post('/admin/size/manage_size/update/{id}',[SizeController::class,'update']);
+    Route::post('/admin/size/manage_size_process',[SizeController::class,'manage_size_process'])->name('size.insert');
+    Route::get('/admin/size/delete/{id}',[SizeController::class,'delete']);
+    Route::get('/admin/size/status/{status}/{id}',[SizeController::class,'status']);
+
 });
 
 Route::get('/logout',[AdminController::class,'logout']);

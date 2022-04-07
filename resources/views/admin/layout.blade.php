@@ -38,13 +38,21 @@
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
-                        <li>
-                            <a href="dashboard">
+                        <li class="@yield('dashboard_select')">
+                            <a href="/admin/dashboard">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
-                        <li>
-                            <a href="category">
-                                <i class="fas fa-tachometer-alt"></i>Category</a>
+                        <li class="@yield('category_select')">
+                            <a href="/admin/category">
+                                <i class="fa fa-list-alt" aria-hidden="true"></i>Category</a>
+                        </li>
+                        <li class="@yield('coupon_select')">
+                            <a href="/admin/coupon">
+                                <i class="fa fa-gift" aria-hidden="true"></i>Coupon</a>
+                        </li>
+                        <li class="@yield('size_select')">
+                            <a href="/admin/size">
+                                <i class="fa fa-retweet" aria-hidden="true"></i>Size</a>
                         </li>
                     </ul>
                 </div>
@@ -62,17 +70,21 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li>
+                        <li class="@yield('dashboard_select')">
                             <a href="/admin/dashboard">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
-                        <li>
+                        <li class="@yield('category_select')">
                             <a href="/admin/category">
                                 <i class="fa fa-list-alt" aria-hidden="true"></i>Category</a>
                         </li>
-                        <li>
+                        <li class="@yield('coupon_select')">
                             <a href="/admin/coupon">
                                 <i class="fa fa-gift" aria-hidden="true"></i>Coupon</a>
+                        </li>
+                        <li class="@yield('size_select')">
+                            <a href="/admin/size">
+                                <i class="fa fa-retweet" aria-hidden="true"></i>Size</a>
                         </li>
                     </ul>
                 </nav>
