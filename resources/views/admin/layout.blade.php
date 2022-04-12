@@ -54,6 +54,10 @@
                             <a href="/admin/size">
                                 <i class="fa fa-retweet" aria-hidden="true"></i>Size</a>
                         </li>
+                        <li class="@yield('size_select')">
+                            <a href="/admin/product">
+                                <i class='fa fa-product-hunt'></i>Product</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -85,6 +89,10 @@
                         <li class="@yield('size_select')">
                             <a href="/admin/size">
                                 <i class="fa fa-retweet" aria-hidden="true"></i>Size</a>
+                        </li>
+                        <li class="@yield('product_select')">
+                            <a href="/admin/product">
+                                <i class="fa fa-life-ring" aria-hidden="true"></i>Product</a>
                         </li>
                     </ul>
                 </nav>
