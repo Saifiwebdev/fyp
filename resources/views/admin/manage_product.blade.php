@@ -40,38 +40,46 @@
                             </div>
                             @enderror
                     </div>
-                    <div class="form-group has-success">
-                        <label for="category_id" class="control-label mb-1">Category</label>
-                        {{-- <input id="product" name="category_id" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error"> --}}
-                        <select name="category_id" id="" aria-required="true" aria-invalid="false" class="form-control">
-                            <option value="">Select Category</option>
-                            @foreach ($category as $list)
-                            <option value="{{$list->id}}">{{$list->category_name}}</option>
-                            @endforeach
-                        </select>
-                        @error('category_id')
-                            <div class="alert alert-danger">
-                                {{$message}}
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group has-success">
+                                <label for="category_id" class="control-label mb-1">Category</label>
+                                {{-- <input id="product" name="category_id" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error"> --}}
+                                <select name="category_id" id="" aria-required="true" aria-invalid="false" class="form-control">
+                                    <option value="">Select Category</option>
+                                    @foreach ($category as $list)
+                                    <option value="{{$list->id}}">{{$list->category_name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('category_id')
+                                    <div class="alert alert-danger">
+                                        {{$message}}
+                                    </div>
+                                    @enderror
                             </div>
-                            @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="control-label mb-1">Brand Name</label>
-                        <input id="" name="brand" type="text" class="form-control cc-number identified visa" value="" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number" autocomplete="cc-number">
-                            @error('brand')
-                            <div class="alert alert-danger">
-                                {{$message}}
-                            </div>
-                            @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="control-label mb-1">Model</label>
-                        <input id="" name="model" type="text" class="form-control cc-number identified visa" value="" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number" autocomplete="cc-number">
-                            @error('model')
-                            <div class="alert alert-danger">
-                                {{$message}}
-                            </div>
-                            @enderror
+                        </div>
+                        <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="" class="control-label mb-1">Brand Name</label>
+                            <input id="" name="brand" type="text" class="form-control cc-number identified visa" value="" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number" autocomplete="cc-number">
+                                @error('brand')
+                                <div class="alert alert-danger">
+                                    {{$message}}
+                                </div>
+                                @enderror
+                        </div>
+                        </div>
+                        <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="" class="control-label mb-1">Model</label>
+                            <input id="" name="model" type="text" class="form-control cc-number identified visa" value="" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number" autocomplete="cc-number">
+                                @error('model')
+                                <div class="alert alert-danger">
+                                    {{$message}}
+                                </div>
+                                @enderror
+                        </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="control-label mb-1">Short Description</label>

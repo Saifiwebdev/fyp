@@ -34,8 +34,8 @@
                         <td>{{$list->brand}}</td>
                         <td class="text-center"><img src="{{asset('storage/media/'.$list->image)}}" alt="img" width="100px"></td>
                         <td class="text-center">
-                            <a href="{{url('admin/product/delete/')}}/{{$list->id}}"><button class="btn btn-danger">Delete</button></a>
-                            <a href="{{url('admin/product/manage_product/')}}/{{$list->id}}"><button class="btn btn-success">Edit</button></a>
+                            <a href="{{url('admin/product/delete/')}}/{{$list->id}}"><button class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
+                            <a href="{{url('admin/product/manage_product/')}}/{{$list->id}}"><button class="btn btn-success"><i class="fa fa-edit"></i></button></a>
                         </td>
                         <td class="text-center">
                             @if($list->status == 0)

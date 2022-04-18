@@ -14,6 +14,7 @@
     <link href="{{asset('admin_assets/vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('admin_assets/vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('admin_assets/css/theme.css')}}" rel="stylesheet" media="all">
+    <link rel="icon" href="{{asset('admin_assets\images\icon\shopicon.png')}}" />
 
 </head>
 
@@ -150,6 +151,7 @@
     <script src="{{asset('admin_assets/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
     <script src="{{asset('admin_assets/vendor/wow/wow.min.js')}}"></script>
     <script src="{{asset('admin_assets/js/main.js')}}"></script>
+
 
 </body>
 

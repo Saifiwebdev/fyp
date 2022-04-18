@@ -7,6 +7,7 @@ use App\Http\Controllers\CouponController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,7 @@ Route::get('/admin',[AdminController::class,'index']);
 Route::post('/admin/auth',[AdminController::class,'auth'])->name('admin.auth');
 
 Route::group(['middleware'=>'admin_auth'], function(){
+
     Route::get('/admin/dashboard',[AdminController::class,'dashboard']);
     //Category Routes
     Route::get('/admin/category',[CategoryController::class,'index']);
