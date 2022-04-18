@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ColorController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -54,6 +55,15 @@ Route::group(['middleware'=>'admin_auth'], function(){
     Route::post('/admin/size/manage_size_process',[SizeController::class,'manage_size_process'])->name('size.insert');
     Route::get('/admin/size/delete/{id}',[SizeController::class,'delete']);
     Route::get('/admin/size/status/{status}/{id}',[SizeController::class,'status']);
+
+    //Color Routes
+    Route::get('/admin/color',[ColorController::class,'index']);
+    Route::get('/admin/color/manage_color',[ColorController::class,'manage_color']);
+    Route::get('/admin/color/manage_color/{id}',[ColorController::class,'edit']);
+    Route::post('/admin/color/manage_color/update/{id}',[ColorController::class,'update']);
+    Route::post('/admin/color/manage_color_process',[ColorController::class,'manage_color_process'])->name('color.insert');
+    Route::get('/admin/color/delete/{id}',[ColorController::class,'delete']);
+    Route::get('/admin/color/status/{status}/{id}',[ColorController::class,'status']);
 
     //Product Routes
     Route::get('/admin/product',[ProductController::class,'index']);

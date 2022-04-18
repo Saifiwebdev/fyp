@@ -11,6 +11,7 @@
         <div class="card">
             {{-- <div class="card-header">Add Categroy</div> --}}
             <div class="card-body">
+                <h3 class="mb-3">Product Detail</h3>
                 <form action="{{route('product.insert')}}" enctype="multipart/form-data" method="post">
                     @csrf
                     <div class="form-group">
@@ -135,6 +136,32 @@
                             </div>
                             @enderror
                     </div>
+                    <div class="border p-2 mb-3">
+                        <h3 class="mb-3 mt-2">Product Attributes</h3>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <label for="sku">SKU</label>
+                                <input id="sku" name="sku" type="text" class="form-control cc-number identified visa" value="" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number" autocomplete="cc-number">
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="mrp">MRP</label>
+                                <input id="mrp" name="sku" type="text" class="form-control cc-number identified visa" value="" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number" autocomplete="cc-number">
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="price">Price</label>
+                                <input id="price" name="sku" type="text" class="form-control cc-number identified visa" value="" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number" autocomplete="cc-number">
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="size">Size</label>
+                                <select name="category_id" id="" aria-required="true" aria-invalid="false" class="form-control">
+                                    <option value="">Select</option>
+                                    @foreach ($sizes as $list)
+                                    <option value="{{$list->id}}">{{$list->size}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                     <div>
                         <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
                             <span id="payment-button-amount">Submit</span>
@@ -146,4 +173,5 @@
         </div>
     </div>
 </div>
+
 @endsection

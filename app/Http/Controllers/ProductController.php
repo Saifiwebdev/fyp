@@ -18,6 +18,8 @@ class ProductController extends Controller
     public function manage_product()
     {
         $result['category']=DB::table('categories')->where(['status'=> 0])->get();
+        $result['sizes']=DB::table('sizes')->where(['status'=> 0])->get();
+        // $result['colors']=DB::table('colors')->where(['status'=> 0])->get();
         return view('admin/manage_product', $result);
     }
 

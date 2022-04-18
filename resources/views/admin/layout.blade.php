@@ -8,6 +8,7 @@
 
     <title>@yield('tittle_page')</title>
 
+
     <link href="{{asset('admin_assets/css/font-face.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('admin_assets/vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('admin_assets/vendor/font-awesome-5/css/fontawesome-all.min.css')}}" rel="stylesheet" media="all">
@@ -55,6 +56,10 @@
                             <a href="/admin/size">
                                 <i class="fa fa-retweet" aria-hidden="true"></i>Size</a>
                         </li>
+                        <li class="@yield('color_select')">
+                            <a href="/admin/color">
+                                <i class="fa fa-life-ring" aria-hidden="true"></i>Color</a>
+                        </li>
                         <li class="@yield('size_select')">
                             <a href="/admin/product">
                                 <i class='fa fa-product-hunt'></i>Product</a>
@@ -91,6 +96,10 @@
                             <a href="/admin/size">
                                 <i class="fa fa-retweet" aria-hidden="true"></i>Size</a>
                         </li>
+                        <li class="@yield('color_select')">
+                            <a href="/admin/color">
+                                <i class="fa fa-angle-double-left"></i>Color</a>
+                        </li>
                         <li class="@yield('product_select')">
                             <a href="/admin/product">
                                 <i class="fa fa-life-ring" aria-hidden="true"></i>Product</a>
@@ -114,6 +123,7 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="content">
+                                            <i class="fa fa-refresh fa-spin"></i> &nbsp;
                                             <a class="js-acc-btn" href="#">Welcome Admin</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
