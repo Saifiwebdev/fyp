@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use League\CommonMark\Extension\Table\TableRow;
 
 class ProductController extends Controller
 {
@@ -19,7 +20,7 @@ class ProductController extends Controller
     {
         $result['category']=DB::table('categories')->where(['status'=> 0])->get();
         $result['sizes']=DB::table('sizes')->where(['status'=> 0])->get();
-        // $result['colors']=DB::table('colors')->where(['status'=> 0])->get();
+        $result['colors']=DB::table('colors')->where(['status'=> 0])->get();
         return view('admin/manage_product', $result);
     }
 
@@ -47,7 +48,7 @@ class ProductController extends Controller
             $image = $request->file('image');
             $ext = $image->extension();
             $image_name = time() . '.' . $ext;
-            $image->storeAs('/public/media', $image_name);
+            $image->storeAs('/public/media/', $image_name);
             $model->image = $image_name;
         }
 
@@ -61,7 +62,30 @@ class ProductController extends Controller
         $model->uses = $request->post('uses');
         $model->warranty = $request->post('warranty');
         $model->status = 0;
+        $pid = $model->id;
+
+        $sku = $request->post('sku');
+        $mrp = $request->post('mrp');
+        $price = $request->post('price');
+        $size_id = $request->post('size_id');
+        $color_id = $request->post('color_id');
+        $qty = $request->post('qty');
         $model->save();
+        $image_attr = $request->post('image');
+
+        foreach($sku as $key => $value){
+            $product_Attr['product_id'] = 2;
+            $product_Attr['sku'] = $sku[$key];
+            $product_Attr['attr_image'] = 'sds';
+            $product_Attr['mrp'] = $mrp[$key];
+            $product_Attr['price'] = $price[$key];
+            $product_Attr['qty'] = $qty[$key];
+            $product_Attr['size_id'] = $size_id[$key];
+            $product_Attr['color_id'] = $color_id[$key];
+
+            DB::table('product_attr')->insert($product_Attr);
+        }
+
         $request->session()->flash('message','Product Inserted Successfully!');
         return redirect('admin/product');
     }
@@ -97,7 +121,7 @@ class ProductController extends Controller
                 $image = $request->file('image');
                 $ext = $image->extension();
                 $image_name = time() . '.' . $ext;
-                $image->storeAs('/public/media', $image_name);
+                $image->storeAs('/public/media/', $image_name);
                 $model->image = $image_name;
             }
 
