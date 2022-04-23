@@ -72,6 +72,72 @@
                         <label for="" class="control-label mb-1">Product Warranty</label>
                         <input id="" name="warranty" type="text" class="form-control cc-number identified visa" value="{{$model->warranty}}" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number" autocomplete="cc-number">
                     </div>
+
+                    {{-- Product Attributes --}}
+
+                    @foreach ($product_attrArr as $key => $value)
+                    <?php $pArr = (array)$value ?>
+                    <div class="border p-2 mb-3" id="product_attr_box">
+                        <h3 class="mb-3 mt-2">Product Attributes</h3>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <label for="sku">SKU</label>
+                                <input id="sku" name="sku[]" type="text" class="form-control cc-number identified visa" value="{{ $pArr['sku'] }}" >
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="mrp">MRP</label>
+                                <input id="mrp" name="mrp[]" type="text" class="form-control cc-number identified visa" value="{{ $pArr['mrp'] }}" >
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="price">Price</label>
+                                <input id="price" name="price[]" type="text" class="form-control cc-number identified visa" value="{{ $pArr['price'] }}" >
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="size">Size</label>
+                                <select name="size_id[]" id="" aria-required="true" aria-invalid="false" class="form-control">
+                                    <option value="">Select</option>
+                                    @foreach ($sizes as $list)
+                                    @if($pArr['size_id'] == $list->id)
+                                        <option selected value="{{$list->size}}"> {{ $list->size }} </option>
+                                    @else
+                                        <option value="{{$list->size}}"> {{ $list->size }} </option>
+                                    @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <label for="color">Color</label>
+                                <select name="color_id[]" id="color" aria-required="true" aria-invalid="false" class="form-control">
+                                    <option value="">Select</option>
+                                    @foreach ($colors as $list)
+                                    @if($pArr['color_id'] == $list->id)
+                                        <option selected value="{{$list->color}}"> {{ $list->color }} </option>
+                                    @else
+                                        <option value="{{$list->color}}"> {{ $list->color }} </option>
+                                    @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="qty">Qty</label>
+                                <input id="qty" name="qty[]" type="text" class="form-control cc-number identified visa" value="" >
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="" class="control-label mb-1">Product Image</label>
+                                    <input id="" name="attr_image[]" type="file" class="form-control cc-number identified visa" value="" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <span class="btn btn-success" id="add_more"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add</span>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
                     <div>
                         <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
                             <span id="payment-button-amount">Submit</span>

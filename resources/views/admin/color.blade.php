@@ -3,9 +3,10 @@
 @section('color_select','active')
 @section('container')
 @if(session('message'))
-<div class="alert alert-danger">
+<div class="alert alert-success alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     {{session('message')}}
-</div>
+  </div>
 @endif
 <h1>Color</h1>
 <br>
@@ -31,7 +32,7 @@
                         <td>{{$list->color}}</td>
                         <td class="text-center">
                             <a href="{{url('admin/color/delete/')}}/{{$list->id}}"><button class="btn btn-danger">Delete</button></a>
-                            <a href="{{url('admin/color/manage_color/')}}/{{$list->id}}"><button class="btn btn-success">Edit</button></a>
+                            {{-- <a href="{{url('admin/color/manage_color/')}}/{{$list->id}}"><button class="btn btn-success">Edit</button></a> --}}
                         </td>
                         <td class="text-center">
                             @if($list->status == 0)

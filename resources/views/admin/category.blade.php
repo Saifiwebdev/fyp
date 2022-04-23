@@ -3,9 +3,10 @@
 @section('category_select','active')
 @section('container')
 @if(session('message'))
-<div class="alert alert-danger">
+<div class="alert alert-success alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     {{session('message')}}
-</div>
+  </div>
 @endif
 <h1>Category</h1>
 <br>

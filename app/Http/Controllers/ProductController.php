@@ -62,7 +62,9 @@ class ProductController extends Controller
         $model->uses = $request->post('uses');
         $model->warranty = $request->post('warranty');
         $model->status = 0;
+        $model->save();
         $pid = $model->id;
+
 
         $sku = $request->post('sku');
         $mrp = $request->post('mrp');
@@ -70,11 +72,10 @@ class ProductController extends Controller
         $size_id = $request->post('size_id');
         $color_id = $request->post('color_id');
         $qty = $request->post('qty');
-        $model->save();
         $image_attr = $request->post('image');
 
         foreach($sku as $key => $value){
-            $product_Attr['product_id'] = 2;
+            $product_Attr['product_id'] = $pid;
             $product_Attr['sku'] = $sku[$key];
             $product_Attr['attr_image'] = 'sds';
             $product_Attr['mrp'] = $mrp[$key];
@@ -107,7 +108,10 @@ class ProductController extends Controller
 
     public function edit($id){
         $model = Product::find($id);
+        $result['product_attrArr']=DB::table('product_attr')->where(['product_id'=> $id])->get();
         $result['category']=DB::table('categories')->where(['status'=> 0])->get();
+        $result['sizes']=DB::table('sizes')->where(['status'=> 0])->get();
+        $result['colors']=DB::table('colors')->where(['status'=> 0])->get();
         $data = compact('model');
         return view('admin.update_product',$result)->with($data);
     }

@@ -28,7 +28,7 @@ class CategoryController extends Controller
         $model = new Category();
         $model->category_name = $request->post('category_name');
         $model->category_slug = $request->post('category_slug');
-        $model->status = 1;
+        $model->status = 0;
         $model->save();
         $request->session()->flash('message','Category Inserted Successfully!');
         return redirect('admin/category');
